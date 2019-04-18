@@ -22,7 +22,8 @@ print(data_training.head())
 print("data_test")
 print(data_test.head())
 
-decision_tree_machine = tree.DecisionTreeClassifier(criterion="gini")
+# decision_tree_machine = tree.DecisionTreeClassifier(criterion="gini")
+decision_tree_machine = tree.DecisionTreeClassifier(criterion="entropy")
 decision_tree_machine.fit(data_training, target_training)
 
 predictions = decision_tree_machine.predict(data_test)
