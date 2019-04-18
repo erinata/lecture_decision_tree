@@ -22,8 +22,8 @@ print(data_training.head())
 print("data_test")
 print(data_test.head())
 
-# decision_tree_machine = tree.DecisionTreeClassifier(criterion="gini")
-decision_tree_machine = tree.DecisionTreeClassifier(criterion="entropy")
+decision_tree_machine = tree.DecisionTreeClassifier(criterion="gini", max_depth=10)
+# decision_tree_machine = tree.DecisionTreeClassifier(criterion="entropy")
 decision_tree_machine.fit(data_training, target_training)
 
 predictions = decision_tree_machine.predict(data_test)
@@ -38,5 +38,8 @@ confusion_matrix = pd.DataFrame(
 
 print(confusion_matrix)
 
+#xprint(decision_tree_machine.feature_importances_)
+print(dict(zip(data.columns, 
+decision_tree_machine.feature_importances_)))
 
 
