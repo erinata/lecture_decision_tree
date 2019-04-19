@@ -39,7 +39,6 @@ confusion_matrix = pd.DataFrame(
 print(confusion_matrix)
 
 #xprint(decision_tree_machine.feature_importances_)
-print(dict(zip(data.columns, 
-decision_tree_machine.feature_importances_)))
+print(dict(zip(data.columns, decision_tree_machine.feature_importances_)))
 
 

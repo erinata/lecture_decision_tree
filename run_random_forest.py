@@ -20,3 +20,31 @@ data_training, data_test, target_training, target_test = train_test_split(data, 
 # print(data_training.head())
 # print("data_test")
 # print(data_test.head())
+
+
+random_forest_machine = RandomForestClassifier(n_estimators=11)
+
+random_forest_machine.fit(data_training, target_training)
+
+predictions = random_forest_machine.predict(data_test)
+
+print(accuracy_score(target_test, predictions))
+
+confusion_matrix = pd.DataFrame(
+	confusion_matrix(target_test,predictions),
+	columns = ['Predict 0', 'Predict 1', 'Predict 2', 'Predict 3'],
+	index = ['True 0', 'True 1', 'True 2', 'True 3']
+)
+
+print(confusion_matrix)
+
+print(dict(zip(data.columns, random_forest_machine.feature_importances_)))
+
+
+
+
+
+
+
+
+
